@@ -1,0 +1,16 @@
+Miracles Star Neon — Low-Latency Queue Patch
+
+Based on the currently working Speed + Direct Mode source.
+
+Changes:
+- Colour frame cadence increased from 10 FPS to a maximum of ~30 FPS.
+- Queued colour packets are coalesced: only the newest unsent colour survives.
+- Switching modes clears obsolete queued packets before sending the new mode.
+- BLE Write Without Response is preferred when FFF3 advertises it; otherwise the code falls back to Write With Response.
+- BLE command pacing reduced from 60 ms to 20 ms; the first pending command is scheduled immediately.
+- Existing speed, brightness, power, reverse, Direct mode, and 256 hardware-effect entries are retained.
+
+Important:
+- This specifically targets stale queued frames and slow effect switching.
+- It does not create per-LED control. The confirmed 0x04 protocol packet still sets one global strip colour, so OpenRGB remains a one-logical-LED device.
+- This source patch has not been compiled or tested on the user's Windows/Qt/MSVC environment. If BLE becomes unstable or drops commands, restore the previous 60 ms pacing while keeping colour coalescing and mode-switch queue clearing.

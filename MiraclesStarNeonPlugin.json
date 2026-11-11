@@ -1,0 +1,10 @@
+{
+  "Id": "MiraclesStarNeon",
+  "Name": "Miracles Star Neon",
+  "Version": "0.3.0",
+  "Description": "Native BLE color, brightness, speed and hardware effect control",
+  "Url": "https://github.com/",
+  "Location": 0,
+  "Label": "Miracles Star",
+  "OpenRGBPluginAPIVersion": 5
+}

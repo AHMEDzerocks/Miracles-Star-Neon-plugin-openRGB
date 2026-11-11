@@ -1,0 +1,15 @@
+Miracles Star Neon patch - Reverse Direction
+
+Adds a Reverse Direction button to the plugin widget.
+Protocol frames are based on the uploaded GlowBridge source:
+  Forward: BC 07 01 01 55
+  Reverse: BC 07 01 00 55
+
+The button toggles direction and sends the direction command immediately.
+Whenever a hardware effect is selected, the plugin also reapplies the current
+ direction after the effect-selection frame, matching GlowBridge's two-frame
+ effect sequence. The existing named and numeric effect modes are retained.
+
+Replace NeonController.h, NeonController.cpp, and MiraclesStarNeonPlugin.cpp
+in D:\\MiraclesStarNeon, then rebuild with the user's existing qmake/nmake steps.
+This patch has not been compiled or tested against the physical strip here.
